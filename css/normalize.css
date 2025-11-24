@@ -1,0 +1,528 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+   ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+ html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+
+/**
+ * Remove the margin in all browsers.
+ */
+
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+/* Styles généraux et réinitialisation */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f0f0; /* Couleur de fond légère */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Barre de Navigation (Header) --- */
+.navbar {
+    background-color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 24px;
+    color: #3f51b5; /* Exemple de couleur de marque */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 15px;
+    padding: 5px 10px;
+}
+
+.navbar a:hover {
+    color: #000;
+}
+
+.login-btn, .google-btn {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* --- Conteneur Principal de la Grille (Main) --- */
+.grid-container {
+    flex-grow: 1; /* Permet au conteneur de prendre l'espace restant */
+    display: grid;
+    /* Définition des colonnes : Trois colonnes de largeur égale (1fr) */
+    grid-template-columns: 1fr 1fr 1fr;
+    /* Définition des lignes (ajustez selon le besoin, ici auto pour le contenu) */
+    grid-template-rows: auto auto; /* 2 lignes principales (celle du formulaire, celle du dessous) */
+    gap: 15px; /* Espace entre les éléments de la grille */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto; /* Centrer la grille sur la page */
+}
+
+/* --- Définition des zones de la Grille --- */
+
+/* La grande image/bloc sur la droite doit couvrir 2 lignes (item-3) */
+.item-3 {
+    grid-column: 3; /* Commence à la colonne 3 */
+    grid-row: 1 / span 2; /* Commence à la ligne 1 et s'étend sur 2 lignes */
+}
+
+/* Le formulaire de connexion (item-4) */
+.login-form-container {
+    grid-column: 1; /* Commence à la colonne 1 */
+    grid-row: 2; /* Commence à la ligne 2 */
+}
+
+/* Les petites images/blocs (item-1, item-2, item-5, item-6) sont positionnées par défaut,
+   sauf pour l'item-6 qui doit être sur la 3e ligne/colonne 2.
+   Correction basée sur l'image fournie : Les deux derniers blocs sont sous la grande image. */
+.item-5 {
+    grid-column: 2; /* Se place dans la colonne 2, ligne 2 */
+    grid-row: 2;
+}
+
+.item-6 {
+    /* La structure dans l'image est en fait 2 colonnes à gauche et 1 grande colonne à droite
+       puis 2 blocs sous la grande colonne. Nous allons adapter la grille:
+       4 colonnes (1fr 1fr 1fr 1fr) et on utilise la 4e colonne pour les deux petits blocs du bas. */
+    /* La grille originale dans l'image semble être un 3x3 ou similaire, mais pour simplifier: */
+
+    /* **Nouvelle configuration de grille 3x2 plus logique pour l'image :**
+       (Image-1) (Image-2) (Image-Large)
+       (Form-Connexion) (Image-5) (Image-6) */
+
+    /* Pour correspondre à l'image fournie (3 colonnes):
+       Ligne 1: item-1 (col 1), item-2 (col 2), item-3 (col 3, s'étend sur Ligne 1 et 2)
+       Ligne 2: item-4 (col 1), item-5 (col 2), item-3 (continuation de la grande image) */
+
+    /* item-6 n'existe pas dans le schéma 3x2 avec la grande image à droite.
+       Basé sur l'image, il y a deux petits blocs sous la GRANDE image de droite.
+       Nous devons donc définir une grille 4x2 ou une grille 3x3 et placer les éléments manuellement.
+
+       Nous allons rester sur un **schéma 3x3 virtuel** pour plus de flexibilité :
+       C1     C2     C3
+       B1     B2     B3 (B3 span 2 lignes)
+       B4     B5     B3
+       B6     B7     B8
+    */
+    /* Compte tenu du schéma de l'image (2 blocs carrés en haut, le formulaire en bas à gauche,
+       et un grand bloc rectangulaire à droite couvrant la hauteur de tous les autres)
+       Nous allons utiliser une **grille 3x2** comme ci-dessus, et ignorer un bloc pour coller au mieux. */
+    display: none; /* Cache item-6 pour coller au schéma 3x2 (2 blocs sous la grande image) */
+}
+
+
+/* --- Styles des Éléments de la Grille (Placeholders et Formulaire) --- */
+
+.placeholder-box {
+    background-color: white;
+    border: 1px solid #333; /* Contour des images/blocs */
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.large-placeholder {
+    min-height: 300px; /* S'étend sur deux lignes */
+}
+
+/* Conteneur du Formulaire de Connexion */
+.login-form-container {
+    background-color: #e0e0e0; /* Fond gris clair */
+    padding: 25px;
+}
+
+.login-form-container h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.login-form-container label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.login-form-container input[type="text"],
+.login-form-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.connect-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.connect-btn:hover {
+    background-color: #555;
+}
+
+/* --- Pied de Page (Footer) --- */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: left;
+    padding: 15px 40px;
+    margin-top: auto; /* Pousse le footer en bas */
+}
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10+.
+ */
+
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+
+[hidden] {
+  display: none;
+}

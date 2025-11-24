@@ -1,0 +1,207 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Typographies / Couleurs
+========================================================================== */
+body {
+    background-color: #f4f4f4; /* Léger gris de fond pour la page */
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Mise en page (positionnement)
+========================================================================== */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-grow: 1; /* Le conteneur prend l'espace central */
+    padding: 50px 0;
+}
+
+/* Conteneur de la grille principale */
+.grid-container {
+    height: 600px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    /* PROPRIÉTÉS CSS GRID CLÉS */
+    display: grid;
+    /* Col 1 (Images/Formulaire) : 1fr | Col 2 (Grande Image) : 1.2fr */
+    grid-template-columns: 1fr 1.2fr;
+    /* Ligne 1 (Images du haut) : 1fr | Ligne 2 (Formulaire) : 1fr */
+    grid-template-rows: 1fr 1fr;
+  
+}
+
+
+/* Header / Navigations / Footer
+========================================================================== */
+
+.header {
+    background-color: #333;
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-text {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1em;
+}
+
+.navigation a:hover {
+    color: #b9b3b3;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 15px 50px;
+}
+
+.footer-content-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #555;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-content-top p {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.phone-number {
+    background-color: white;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.footer-content-bottom {
+    text-align: center;
+    font-size: 0.85em;
+    color: #bbb;
+}
+
+
+/* Composantes générales
+========================================================================== */
+
+/* Styles pour les zones d'images (placeholders) */
+.grid-item {
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    /* Pour simuler les X barrés (Placeholder) */
+    background-image: linear-gradient(to top right, transparent calc(50% - 1px), #ccc 50%, transparent calc(50% + 1px)),
+                      linear-gradient(to bottom right, transparent calc(50% - 1px), #ccc 50%, transparent calc(50% + 1px));
+}
+
+/* 1. Conteneur des deux petites images du haut (SOUS-GRILLE) */
+.image-placeholder-small-container {
+    grid-column: 1 / 2; /* Col 1 */
+    grid-row: 1 / 2; /* Ligne 1 */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes égales à l'intérieur */
+    grid-template-rows: 1fr;
+    gap: 0;
+}
+
+/* 2. Formulaire de connexion */
+.connexion-form-container {
+    grid-column: 1 / 2; /* Col 1 */
+    grid-row: 2 / 3; /* Ligne 2 */
+    background-color: #eee;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #ccc; /* Pour l'aspect visuel du cadre du formulaire */
+}
+
+/* 3. Grande Image (s'étend sur Col 2, Lignes 1 et 2) */
+.image-placeholder-large {
+    grid-column: 2 / 3; /* Col 2 */
+    grid-row: 1 / 3; /* S'étend sur les deux lignes */
+}
+
+/* Gestion des bordures : Pour éviter les doubles bordures entre les éléments contigus */
+
+/* Dans la sous-grille (images du haut) */
+.image-placeholder-small:first-child {
+    border-right: none; 
+    border-bottom: none; /* La bordure du bas doit se coller à celle du formulaire */
+}
+.image-placeholder-small:last-child {
+    border-bottom: none; /* La bordure du bas doit se coller à celle du formulaire */
+}
+
+
+/* Formulaires
+========================================================================== */
+
+.connexion h2 {
+    margin-top: 0;
+    font-size: 2em;
+    font-weight: normal;
+}
+
+.connexion label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.connexion input[type="text"],
+.connexion input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.btn-connexion {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 30px;
+    font-size: 1em;
+    transition: background-color 0.2s;
+}
+
+.btn-connexion:hover {
+    background-color: #555;
+}
+
+
+/* Règles spécifiques aux pages
+========================================================================== */
+/* Les règles spécifiques sont toutes contenues dans les blocs précédents (Grid) */
