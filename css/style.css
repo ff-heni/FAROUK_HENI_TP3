@@ -1,5 +1,5 @@
 /* ========================================================= */
-/* 1. RESET DE BASE (TON CODE) */
+/* 1. RESET DE BASE */
 /* ========================================================= */
 * {
     box-sizing: border-box;
@@ -20,16 +20,17 @@ body {
 }
 
 /* ========================================================= */
-/* 2. CSS DE LA PAGE 1 (TON CODE ORIGINAL) */
+/* 2. PAGE D’ACCUEIL  */
 /* ========================================================= */
 
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 600px;
+
     gap: 10px;
 }
 
+/* ---- Colonne gauche ---- */
 .left-column {
     display: grid;
     grid-template-rows: 40% 60%;
@@ -48,6 +49,7 @@ body {
     border: 1px solid #ccc;
 }
 
+/* Formulaire connexion */
 .connexion-form-container {
     display: flex;
     flex-direction: column;
@@ -89,6 +91,7 @@ body {
     background-color: #555;
 }
 
+/* ---- Colonne droite ---- */
 .right-column {
     display: grid;
     grid-template-rows: 70% 30%;
@@ -97,8 +100,7 @@ body {
 
 .image-placeholder-large {
     width: 100%;
-    height: 100%;
-    background-color: lightcoral;
+
     border-radius: 5px;
 }
 
@@ -109,13 +111,21 @@ body {
 
 .small-images-right .image-placeholder-small {
     flex: 1;
-    background-color: lightgreen;
+
     border-radius: 5px;
     border: 1px solid #ccc;
 }
+.image-placeholder-small img,
+.image-placeholder-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 
 /* ========================================================= */
-/* 3. HEADER GLOBAL (TON CODE) */
+/* 3. HEADER GLOBAL */
 /* ========================================================= */
 
 header {
@@ -149,10 +159,10 @@ header {
     font-size: 15px;
 }
 
-/* Recherche */
+/* Recherche dans le header */
 .search-bar {
     display: flex;
-    align-items:flex-end;
+    align-items: flex-end;
 }
 
 .search-bar input {
@@ -174,7 +184,7 @@ header {
 }
 
 /* ========================================================= */
-/* 4. PAGE EMPLOYÉS – (TON CODE) */
+/* 4. PAGE EMPLOYÉS (LISTE DES CARTES) */
 /* ========================================================= */
 
 h1 {
@@ -256,13 +266,12 @@ h1 {
 }
 
 /* ========================================================= */
-/* 5. FOOTER GLOBAL (TON CODE) */
+/* 5. FOOTER GLOBAL */
 /* ========================================================= */
 
 .footer {
-    background-color:brown;
-color: #eee;
-  
+    background-color: brown;
+    color: #eee;
     padding: 15px 5%;
     font-size: 0.8em;
 }
@@ -287,12 +296,11 @@ color: #eee;
 }
 
 /* ========================================================= */
-/* 6. AJOUT — PAGE FICHE EMPLOYÉ (NOUVEAU, COMPATIBLE AVEC TON CSS) */
+/* 6. PAGE FICHE EMPLOYÉ (DÉTAILS) */
 /* ========================================================= */
 
-/* TITRE DE SECTION */
+/* Titres */
 .section-title {
-    background: #444;
     color: white;
     padding: 10px 20px;
     margin: 15px 0 10px 0;
@@ -300,7 +308,7 @@ color: #eee;
     font-weight: bold;
 }
 
-/* TITRE NOM EMPLOYÉ */
+/* Nom */
 .employee-name {
     padding: 20px;
 }
@@ -315,14 +323,16 @@ color: #eee;
     font-size: 14px;
 }
 
-/* GRILLE INFORMATIONS */
-.info-grid {
+/* Grilles */
+.info-grid,
+.pay-grid {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 25px;
     padding: 20px;
 }
 
+/* Photo */
 .info-photo {
     height: 260px;
     border: 2px solid #ccc;
@@ -331,6 +341,7 @@ color: #eee;
     );
 }
 
+/* Contact */
 .contact-box {
     background: white;
     border: 1px solid #ccc;
@@ -361,15 +372,7 @@ color: #eee;
     cursor: pointer;
 }
 
-/* GESTION DES PAIEMENTS */
-.pay-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 25px;
-    padding: 20px;
-}
-
-/* COLONNE GAUCHE */
+/* Paiements */
 .operations-box {
     background: white;
     border: 1px solid #ccc;
@@ -390,7 +393,6 @@ color: #eee;
     cursor: pointer;
 }
 
-/* TABLE DES PAIEMENTS */
 .pay-table-box {
     background: white;
     border: 1px solid #ccc;
@@ -401,13 +403,15 @@ color: #eee;
     margin-bottom: 15px;
 }
 
+/* Table */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 15px;
 }
 
-table th, table td {
+table th,
+table td {
     border: 1px solid #888;
     padding: 8px;
     text-align: center;
@@ -424,4 +428,112 @@ table a {
     padding: 10px;
     border: none;
     cursor: pointer;
+}
+
+/* ========================================================= */
+/* 7. PAGE "AJOUT EMPLOYÉ" — FORMULAIRE */
+/* ========================================================= */
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.formulaire {
+    background: white;
+    padding: 25px;
+    max-width: 900px;
+    margin: auto;
+    border-radius: 10px;
+
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Champs */
+.champ {
+    display: flex;
+    flex-direction: column;
+}
+
+.champ.large {
+    grid-column: span 2;
+}
+
+label {
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Bouton */
+.submit-container {
+    grid-column: span 2;
+    text-align: center;
+}
+
+.btn-submit {
+    padding: 12px 25px;
+    background-color: #0055aa;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #003f7d;
+}
+
+/* ========================================================= */
+/* 8. BARRE DE RECHERCHE PAGE EMPLOYÉS */
+/* ========================================================= */
+
+.employee-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    background-color: white;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.search-input::placeholder {
+    font-size: 13px;
+    color: #aaaaaa;
+}
+
+.search-button {
+    background-color: #333333;
+    color: white;
+    border: 1px solid #333333;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    height: 40px;
+    border-radius: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

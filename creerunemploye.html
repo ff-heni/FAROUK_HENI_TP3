@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un employé</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="header">
+    <div class="header-logo">
+       <a href="index.html"> <img src="img/equigest-logo-pale.png" alt="Logo ÉquiGest"></a>
+  
+    </div>
+
+    <nav class="header-nav">
+        <a href="employéé.html">Employés</a>
+        <a href="creerunemploye.html">Créer un employé</a>
+        <a href="moncompte.html">Mon compte</a>
+    </nav>
+</header>
+<main class="container">
+
+    <h1>Ajouter un employé</h1>
+
+    <form class="formulaire" 
+          action="https://nrichardgarneau.pythonanywhere.com/" 
+          method="dialog">
+
+        <!-- Prénom -->
+        <div class="champ">
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required>
+        </div>
+
+        <!-- Nom -->
+        <div class="champ">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+        </div>
+
+        <!-- Téléphone -->
+        <div class="champ">
+            <label for="telephone">Téléphone :</label>
+            <input type="tel" id="telephone" name="telephone" placeholder="555-982-2323" required>
+        </div>
+
+        <!-- Courriel -->
+        <div class="champ">
+            <label for="email">Adresse courriel :</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <!-- Moyen de communication préféré -->
+        <div class="champ">
+            <label for="communication">Moyen de communication préféré :</label>
+            <select id="communication" name="communication" required>
+                <option value="">Sélectionnez...</option>
+                <option>Téléphone</option>
+                <option>Texto</option>
+                <option>Courriel</option>
+                <option>Poste</option>
+            </select>
+        </div>
+
+        <!-- Date d’embauche -->
+        <div class="champ">
+            <label for="embauche">Date d’embauche :</label>
+            <input type="date" id="embauche" name="embauche" required>
+        </div>
+
+        <!-- Type de poste -->
+        <div class="champ large">
+            <label for="poste">Type de poste :</label>
+            <select id="poste" name="poste" required>
+                <option value="">Sélectionnez...</option>
+                <option>Direction</option>
+                <option>Administration</option>
+                <option>Marketing</option>
+                <option>Ressources humaines</option>
+                <option>Gestion de projet</option>
+                <option>Vente</option>
+                <option>Finance</option>
+                <option>Manutention</option>
+                <option>Informatique</option>
+                <option>Design</option>
+                <option>Ingénierie</option>
+                <option>Journalier</option>
+                <option>Junior</option>
+            </select>
+        </div>
+
+        <!-- Arrêt de travail -->
+        <div class="champ large">
+            <label><input type="checkbox" name="arret"> Employé en arrêt de travail</label>
+        </div>
+
+        <!-- Commentaire -->
+        <div class="champ large">
+            <label for="commentaire">Commentaire (max 400 char.) :</label>
+            <textarea id="commentaire" name="commentaire" maxlength="400"></textarea>
+        </div>
+
+        <!-- Bouton -->
+        <div class="submit-container">
+            <button type="submit" class="btn-submit">Ajouter l’employé</button>
+        </div>
+
+    </form>
+    </main>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content-top">
+        <p><strong>EquiGest</strong> : 1660 Boul. de l'Entente, Québec</p>
+        <span class="phone-number">418-123-4567</span>
+      </div>
+      <div class="footer-content-bottom">
+        <p>
+          Site réalisé par : **Votre Nom** | Dans le cadre du programme
+          Techniques de l'Informatique - Cégep Garneau
+        </p>
+      </div>
+    </footer>
+</body>
+</html>
+s
