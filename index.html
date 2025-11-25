@@ -1,85 +1,81 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Connexion - EquiGest</title>
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connexion - EquiGest</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
 
-  <body>
-    <header class="header">
-      <div class="logo">
-        <span class="logo-text">EquiGest</span>
-      </div>
-      <nav class="navigation">
-        <a href="#">Employés</a>
+<body>
+
+<header class="header">
+    <div class="header-logo">
+       <a href="index.html"> <img src="img/equigest-logo-pale.png" alt="Logo ÉquiGest"></a>
+  
+    </div>
+
+    <nav class="header-nav">
+        <a href="employéé.html">Employés</a>
         <a href="#">Créer un employé</a>
-        <a href="#">Mon compte</a>
-      </nav>
-    </header>
+        <a href="moncompte.html">Mon compte</a>
+    </nav>
+</header>
 
-    <main class="main-content">
-      <div class="container">
-        <div class="grid-container">
-          <div>
-            <div >
-                <img src="img/1.webp" alt="" class="image-placeholder-small-container">
-            </div>
-
-            <div >
-                  <img src="img/2.webp" alt="" class="grid-item image-placeholder-small">
-            </div>
-          
-            <div>
-                  <img src="img/3.png"" class="grid-item image-placeholder-small">
-            </div>
+  <main class="main-content">
+    <div class="container">
+      <div class="grid-container">
+        <!-- Colonne gauche -->
+        <div class="left-column">
+          <!-- Petites images haut gauche -->
+          <div class="small-images-left">
+            <div class="image-placeholder-small"></div>
+            <div class="image-placeholder-small"></div>
           </div>
-
+          <!-- Formulaire bas gauche -->
           <div class="connexion-form-container">
             <section class="connexion">
               <h2>Connexion</h2>
               <form action="#" method="POST">
                 <label for="utilisateur">Nom d'utilisateur :</label>
-                <input
-                  type="text"
-                  id="utilisateur"
-                  name="utilisateur"
-                  required
-                />
+                <input type="text" id="utilisateur" name="utilisateur" required />
 
                 <label for="motdepasse">Mot de passe :</label>
-                <input
-                  type="password"
-                  id="motdepasse"
-                  name="motdepasse"
-                  required
-                />
+                <input type="password" id="motdepasse" name="motdepasse" required />
 
-                <button type="submit" class="btn-connexion">
-                  Me connecter
-                </button>
+                <button type="submit" class="btn-connexion">Me connecter</button>
               </form>
             </section>
           </div>
-
-          <div class="grid-item image-placeholder-large"></div>
         </div>
-      </div>
-    </main>
 
-    <footer class="footer">
-      <div class="footer-content-top">
-        <p><strong>EquiGest</strong> : 1660 Boul. de l'Entente, Québec</p>
-        <span class="phone-number">418-123-4567</span>
+        <!-- Colonne droite -->
+        <div class="right-column">
+          <!-- Grande image en haut -->
+          <div class="image-placeholder-large"></div>
+          <!-- Petites images bas droite -->
+          <div class="small-images-right">
+            <div class="image-placeholder-small"></div>
+            <div class="image-placeholder-small"></div>
+          </div>
+        </div>
+
       </div>
-      <div class="footer-content-bottom">
-        <p>
-          Site réalisé par : **Votre Nom** | Dans le cadre du programme
-          Techniques de l'Informatique - Cégep Garneau
-        </p>
-      </div>
-    </footer>
-  </body>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content-top">
+      <p><strong>EquiGest</strong> : 1660 Boul. de l'Entente, Québec</p>
+      <span class="phone-number">418-123-4567</span>
+    </div>
+    <div class="footer-content-bottom">
+      <p>
+        Site réalisé par : **Votre Nom** | Dans le cadre du programme
+        Techniques de l'Informatique - Cégep Garneau
+      </p>
+    </div>
+  </footer>
+</body>
 </html>

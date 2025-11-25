@@ -1,100 +1,282 @@
+/* ========================================================= */
+/* 1. RESET DE BASE (TON CODE) */
+/* ========================================================= */
 * {
     box-sizing: border-box;
-}
-
-/* Typographies / Couleurs
-========================================================================== */
-body {
-    background-color: #f4f4f4; /* Léger gris de fond pour la page */
-    font-family: Arial, sans-serif;
-    color: #333;
     margin: 0;
     padding: 0;
-    display: flex;
-    min-height: 100vh;
 }
 
-/* Mise en page (positionnement)
-========================================================================== */
+body {
+    font-family: Arial, sans-serif;
+}
 
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    flex-grow: 1; /* Le conteneur prend l'espace central */
-    padding: 50px 0;
+    flex-grow: 1;
+    padding: 20px 0;
 }
 
-/* Conteneur de la grille principale */
+/* ========================================================= */
+/* 2. CSS DE LA PAGE 1 (TON CODE ORIGINAL) */
+/* ========================================================= */
+
 .grid-container {
-    height: 600px;
-    background-color: white;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-    /* PROPRIÉTÉS CSS GRID CLÉS */
     display: grid;
-    /* Col 1 (Images/Formulaire) : 1fr | Col 2 (Grande Image) : 1.2fr */
-    grid-template-columns: 1fr 1.2fr;
-    /* Ligne 1 (Images du haut) : 1fr | Ligne 2 (Formulaire) : 1fr */
-    grid-template-rows: 1fr 1fr;
-  
+    grid-template-columns: 1fr 1fr;
+    height: 600px;
+    gap: 10px;
 }
 
+.left-column {
+    display: grid;
+    grid-template-rows: 40% 60%;
+    gap: 10px;
+}
 
-/* Header / Navigations / Footer
-========================================================================== */
+.small-images-left {
+    display: flex;
+    gap: 10px;
+}
 
-.header {
+.small-images-left .image-placeholder-small {
+    flex: 1;
+    background-color: lightblue;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.connexion-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #eee;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.connexion h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.connexion label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.connexion input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.btn-connexion {
     background-color: #333;
     color: white;
-    padding: 15px 50px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 3px;
+}
+
+.btn-connexion:hover {
+    background-color: #555;
+}
+
+.right-column {
+    display: grid;
+    grid-template-rows: 70% 30%;
+    gap: 10px;
+}
+
+.image-placeholder-large {
+    width: 100%;
+    height: 100%;
+    background-color: lightcoral;
+    border-radius: 5px;
+}
+
+.small-images-right {
+    display: flex;
+    gap: 10px;
+}
+
+.small-images-right .image-placeholder-small {
+    flex: 1;
+    background-color: lightgreen;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* ========================================================= */
+/* 3. HEADER GLOBAL (TON CODE) */
+/* ========================================================= */
+
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: #2c2c2c;
+    padding: 15px 25px;
+    color: white;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-logo img {
+    height: 35px;
 }
 
 .logo-text {
-    font-size: 1.5em;
+    font-size: 22px;
     font-weight: bold;
 }
 
-.navigation a {
+.header-nav a {
     color: white;
-    text-decoration: none;
     margin-left: 20px;
-    font-size: 1em;
+    text-decoration: none;
+    font-size: 15px;
 }
 
-.navigation a:hover {
-    color: #b9b3b3;
+/* Recherche */
+.search-bar {
+    display: flex;
+    align-items:flex-end;
 }
+
+.search-bar input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+    width: 250px;
+    font-size: 0.9em;
+}
+
+.search-bar button {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+/* ========================================================= */
+/* 4. PAGE EMPLOYÉS – (TON CODE) */
+/* ========================================================= */
+
+h1 {
+    font-size: 2em;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+.team-section {
+    margin-bottom: 40px;
+}
+
+.team-section h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 5px 0;
+    border-bottom: 3px solid var(--color-primary);
+    display: inline-block;
+}
+
+.team-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.employee-card {
+    border: 1px solid #eee;
+    text-align: center;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.invisible-card {
+    border: none;
+    padding: 0;
+}
+
+.photo-placeholder {
+    width: 100%;
+    padding-top: 75%;
+    background-color: var(--color-bg-light);
+    border: 1px solid #ccc;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.photo-placeholder::before,
+.photo-placeholder::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 1px dashed #ccc;
+}
+
+.photo-placeholder::before { transform: rotate(45deg); }
+.photo-placeholder::after { transform: rotate(-45deg); }
+
+.post-type {
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.name {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.view-profile-btn {
+    text-decoration: none;
+    color: var(--color-link);
+    font-size: 0.9em;
+    border: 1px solid var(--color-link);
+    padding: 3px 10px;
+    display: inline-block;
+}
+
+/* ========================================================= */
+/* 5. FOOTER GLOBAL (TON CODE) */
+/* ========================================================= */
 
 .footer {
-    background-color: #333;
-    color: white;
-    padding: 15px 50px;
+    background-color:brown;
+color: #eee;
+  
+    padding: 15px 5%;
+    font-size: 0.8em;
 }
 
 .footer-content-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #555;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-}
-
-.footer-content-top p {
-    margin: 0;
-    font-size: 1.1em;
+    border-bottom: 1px solid var(--color-primary);
+    padding-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 .phone-number {
-    background-color: white;
-    color: #333;
-    padding: 5px 10px;
-    border-radius: 3px;
     font-weight: bold;
 }
 
@@ -104,104 +286,142 @@ body {
     color: #bbb;
 }
 
+/* ========================================================= */
+/* 6. AJOUT — PAGE FICHE EMPLOYÉ (NOUVEAU, COMPATIBLE AVEC TON CSS) */
+/* ========================================================= */
 
-/* Composantes générales
-========================================================================== */
-
-/* Styles pour les zones d'images (placeholders) */
-.grid-item {
-    border: 1px solid #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f9f9f9;
-    /* Pour simuler les X barrés (Placeholder) */
-    background-image: linear-gradient(to top right, transparent calc(50% - 1px), #ccc 50%, transparent calc(50% + 1px)),
-                      linear-gradient(to bottom right, transparent calc(50% - 1px), #ccc 50%, transparent calc(50% + 1px));
+/* TITRE DE SECTION */
+.section-title {
+    background: #444;
+    color: white;
+    padding: 10px 20px;
+    margin: 15px 0 10px 0;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-/* 1. Conteneur des deux petites images du haut (SOUS-GRILLE) */
-.image-placeholder-small-container {
-    grid-column: 1 / 2; /* Col 1 */
-    grid-row: 1 / 2; /* Ligne 1 */
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Deux colonnes égales à l'intérieur */
-    grid-template-rows: 1fr;
-    gap: 0;
+/* TITRE NOM EMPLOYÉ */
+.employee-name {
+    padding: 20px;
 }
 
-/* 2. Formulaire de connexion */
-.connexion-form-container {
-    grid-column: 1 / 2; /* Col 1 */
-    grid-row: 2 / 3; /* Ligne 2 */
-    background-color: #eee;
-    padding: 30px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 1px solid #ccc; /* Pour l'aspect visuel du cadre du formulaire */
-}
-
-/* 3. Grande Image (s'étend sur Col 2, Lignes 1 et 2) */
-.image-placeholder-large {
-    grid-column: 2 / 3; /* Col 2 */
-    grid-row: 1 / 3; /* S'étend sur les deux lignes */
-}
-
-/* Gestion des bordures : Pour éviter les doubles bordures entre les éléments contigus */
-
-/* Dans la sous-grille (images du haut) */
-.image-placeholder-small:first-child {
-    border-right: none; 
-    border-bottom: none; /* La bordure du bas doit se coller à celle du formulaire */
-}
-.image-placeholder-small:last-child {
-    border-bottom: none; /* La bordure du bas doit se coller à celle du formulaire */
-}
-
-
-/* Formulaires
-========================================================================== */
-
-.connexion h2 {
-    margin-top: 0;
-    font-size: 2em;
+.employee-name h2 {
+    font-size: 24px;
     font-weight: normal;
 }
 
-.connexion label {
-    display: block;
-    margin-top: 20px;
-    margin-bottom: 5px;
-    font-size: 1.1em;
+.emp-id {
+    color: #666;
+    font-size: 14px;
 }
 
-.connexion input[type="text"],
-.connexion input[type="password"] {
+/* GRILLE INFORMATIONS */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 25px;
+    padding: 20px;
+}
+
+.info-photo {
+    height: 260px;
+    border: 2px solid #ccc;
+    background: repeating-linear-gradient(
+        45deg, #ddd, #ddd 10px, #eee 10px, #eee 20px
+    );
+}
+
+.contact-box {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.contact-box h3 {
+    margin-bottom: 15px;
+}
+
+.contact-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.contact-row a {
+    color: #4285f4;
+    text-decoration: none;
+}
+
+.btn-info {
+    margin-top: 10px;
+    background: #555;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+/* GESTION DES PAIEMENTS */
+.pay-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 25px;
+    padding: 20px;
+}
+
+/* COLONNE GAUCHE */
+.operations-box {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.operations-box h3 {
+    margin-bottom: 12px;
+}
+
+.operations-box button {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    font-size: 1em;
+    margin-bottom: 10px;
+    background: #565656;
+    border: none;
+    color: white;
+    cursor: pointer;
 }
 
-.btn-connexion {
-    background-color: #333;
+/* TABLE DES PAIEMENTS */
+.pay-table-box {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.pay-table-box h3 {
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+table th, table td {
+    border: 1px solid #888;
+    padding: 8px;
+    text-align: center;
+}
+
+table a {
+    color: #4285f4;
+    text-decoration: none;
+}
+
+.btn-all {
+    background: #555;
     color: white;
-    padding: 10px 20px;
+    padding: 10px;
     border: none;
     cursor: pointer;
-    margin-top: 30px;
-    font-size: 1em;
-    transition: background-color 0.2s;
 }
-
-.btn-connexion:hover {
-    background-color: #555;
-}
-
-
-/* Règles spécifiques aux pages
-========================================================================== */
-/* Les règles spécifiques sont toutes contenues dans les blocs précédents (Grid) */

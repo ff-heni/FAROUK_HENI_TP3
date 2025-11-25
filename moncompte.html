@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche Employé - ÉquiGest</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<!-- HEADER -->
+<header class="header">
+    <div class="header-logo">
+       <a href="index.html"> <img src="img/equigest-logo-pale.png" alt="Logo ÉquiGest"></a>
+  
+    </div>
+
+    <nav class="header-nav">
+        <a href="employéé.html">Employés</a>
+        <a href="#">Créer un employé</a>
+        <a href="moncompte.html">Mon compte</a>
+    </nav>
+</header>
+<main class="container">
+
+<!-- NOM -->
+<section class="employee-name">
+    <h2>NOM - Prénom <span class="emp-id">(1234567)</span></h2>
+</section>
+
+
+<!-- INFORMATIONS -->
+<section class="section-title">Informations</section>
+
+<section class="info-grid">
+
+    <!-- PHOTO -->
+    <div class="photo-placeholder"></div>
+
+    <!-- CONTACT -->
+    <div class="contact-box">
+        <h3>Contact</h3>
+
+        <div class="contact-row">
+            <span>Téléphone (Travail)</span>
+            <a href="#">418-555-1234</a>
+        </div>
+
+        <div class="contact-row">
+            <span>Téléphone (Personnel)</span>
+            <a href="#">418-555-5678</a>
+        </div>
+
+        <div class="contact-row">
+            <span>Courriel</span>
+            <a href="#">prenom-nom@mail.com</a>
+        </div>
+
+        <button class="btn-info">Voir plus d'informations</button>
+    </div>
+
+</section>
+
+
+<!-- GESTION DES PAIEMENTS -->
+<section class="section-title">Gestion des paies</section>
+
+<section class="pay-grid">
+
+    <!-- OPERATIONS -->
+    <div class="operations-box">
+        <h3>Opérations</h3>
+        <button>Créer une paie</button>
+        <button>Modifier une paie</button>
+        <button>Générer les feuillets fiscaux</button>
+    </div>
+
+    <!-- TABLEAU DES PAIEMENTS -->
+    <div class="pay-table-box">
+        <h3>Dernières paies</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Date d'émission</th>
+                    <th>Gains</th>
+                    <th>Déductions</th>
+                    <th>Dépôt</th>
+                    <th>Détails</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><strong>2023-10-19</strong></td><td>2597,25</td><td>758,88</td><td>1838,37</td><td><a href="#">Voir le PDF</a></td>
+                </tr>
+                <tr>
+                    <td><strong>2023-10-05</strong></td><td>2597,25</td><td>758,88</td><td>1838,37</td><td><a href="#">Voir le PDF</a></td>
+                </tr>
+                <tr>
+                    <td><strong>2023-09-21</strong></td><td>2597,25</td><td>758,88</td><td>1838,37</td><td><a href="#">Voir le PDF</a></td>
+                </tr>
+                <tr>
+                    <td><strong>2023-09-07</strong></td><td>2597,25</td><td>758,88</td><td>1838,37</td><td><a href="#">Voir le PDF</a></td>
+                </tr>
+                <tr>
+                    <td><strong>2023-08-24</strong></td><td>2597,25</td><td>758,88</td><td>1838,37</td><td><a href="#">Voir le PDF</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="btn-all">Voir toutes les paies</button>
+
+    </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <span class="footer-left">
+        <strong>ÉquiGest :</strong> 1660 Boul. de l’Entente, Québec
+    </span>
+
+    <span class="footer-right">
+        418-123-4567
+    </span>
+</footer>
+
+<div class="sub-footer">
+    Site réalisé par : <strong>Votre Nom</strong> | Dans le cadre du programme Techniques de l’informatique - Cégep Garneau
+</div>
+
+</body>
+</html>
